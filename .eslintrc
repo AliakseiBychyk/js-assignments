@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb-base"],
+  "rules": {
+    "no-unused-vars": 0,
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ]
+  }
+}
