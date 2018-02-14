@@ -272,20 +272,20 @@ function getCardId(value) {
 }
 
 
-module.exports = {
+export {
     concatenateStrings,
-    getStringLength: getStringLength,
-    getStringFromTemplate: getStringFromTemplate,
-    extractNameFromTemplate: extractNameFromTemplate,
-    getFirstChar: getFirstChar,
-    removeLeadingAndTrailingWhitespaces: removeLeadingAndTrailingWhitespaces,
-    repeatString: repeatString,
-    removeFirstOccurrences: removeFirstOccurrences,
-    unbracketTag: unbracketTag,
-    convertToUpperCase: convertToUpperCase,
-    extractEmails: extractEmails,
-    getRectangleString: getRectangleString,
-    encodeToRot13: encodeToRot13,
-    isString: isString,
-    getCardId: getCardId
+    getStringLength,
+    getStringFromTemplate,
+    extractNameFromTemplate,
+    getFirstChar,
+    removeLeadingAndTrailingWhitespaces,
+    repeatString,
+    removeFirstOccurrences,
+    unbracketTag,
+    convertToUpperCase,
+    extractEmails,
+    getRectangleString,
+    encodeToRot13,
+    isString,
+    getCardId,
 };
