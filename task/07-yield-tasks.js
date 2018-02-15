@@ -130,7 +130,7 @@ function* mergeSortedSequences(source1, source2) {
 }
 
 
-module.exports = {
+export {
   get99BottlesOfBeer,
   getFibonacciSequence,
   depthTraversalTree,

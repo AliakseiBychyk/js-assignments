@@ -4,6 +4,7 @@
     "max-len": 0,
     "no-console": 0,
     "no-unused-vars": 0,
+    "require-yield": 0,
     "quotes": [
       2,
       "single",
