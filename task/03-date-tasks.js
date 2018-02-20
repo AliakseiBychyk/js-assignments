@@ -22,7 +22,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-  throw new Error('Not implemented');
+  return Date.parse(value);
 }
 
 /**
@@ -37,7 +37,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-  throw new Error('Not implemented');
+  return Date.parse(value);
 }
 
 
@@ -56,7 +56,8 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-  throw new Error('Not implemented');
+  const year = date.getYear() + 1900;
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
 
@@ -76,7 +77,13 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-  throw new Error('Not implemented');
+  const span = endDate.getTime() - startDate.getTime()
+  const hours = Math.floor(span / 3600000)
+  const minutes = Math.floor((span - hours * 3600000) / 60000)
+  const seconds = Math.floor((span - hours * 3600000 - minutes * 60000) / 1000) 
+  const rest = Math.floor((span - hours * 3600000 - minutes * 60000 - seconds * 1000))
+
+  return `${('0' + hours).slice(-2)}:${('0' + minutes).slice(-2)}:${('0' + seconds).slice(-2)}.${('00'+rest).slice(-3)}`
 }
 
 
@@ -94,11 +101,18 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-  throw new Error('Not implemented');
+  const hours = date.getUTCHours()%12;
+  const minutes = date.getUTCMinutes();
+  const hoursAngleDegree = 0.5 * (60 * hours + minutes);
+  const minutesAngleDegree = 6 * minutes;
+  const angleDegree = Math.abs(hoursAngleDegree - minutesAngleDegree);
+  const angleRadians = angleDegree * Math.PI / 180
+
+  return angleDegree <= 180 ? angleRadians : angleRadians - Math.PI
 }
 
 
-module.exports = {
+export {
   parseDataFromRfc2822,
   parseDataFromIso8601,
   isLeapYear,

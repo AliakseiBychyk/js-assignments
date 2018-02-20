@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return value1/2 + value2/2
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -73,7 +73,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  return Math.sqrt((x1 - x2)**2 + (y1 -y2)**2)
+  return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 }
 
 /**
@@ -89,7 +89,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-  return -b /a
+  return -b / a;
 }
 
 
@@ -112,8 +112,8 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
   const dotProduct = x1 * x2 + y1 * y2;
-  const magnitude = (x, y) => Math.hypot(x, y)
-  return Math.acos(dotProduct/(magnitude(x1, y1)*magnitude(x2, y2)))
+  const magnitude = (x, y) => Math.hypot(x, y);
+  return Math.acos(dotProduct / (magnitude(x1, y1) * magnitude(x2, y2)));
 }
 
 /**
@@ -129,7 +129,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  return parseInt(('' + value).substr(-1, 1))
+  return parseInt((`${value}`).substr(-1, 1));
 }
 
 
@@ -227,7 +227,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  return isNaN(+value) ? def : +value
+  return isNaN(+value) ? def : +value;
 }
 
 module.exports = {
