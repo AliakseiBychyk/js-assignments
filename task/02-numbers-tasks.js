@@ -230,7 +230,7 @@ function toNumber(value, def) {
   return isNaN(+value) ? def : +value;
 }
 
-module.exports = {
+export {
   getRectangleArea,
   getCicleCircumference,
   getAverage,

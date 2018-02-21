@@ -16,9 +16,9 @@
  *     { abbreviation : 'NbW',   azimuth : 348.75 }
  *  ]
  */
-function createCompassPoints() {
+function createCompassPoints(sides = ['N', 'E', 'S', 'W']) {
   throw new Error('Not implemented');
-  const sides = ['N', 'E', 'S', 'W']; // use array of cardinal directions only!
+  // use array of cardinal directions only!
 }
 
 
