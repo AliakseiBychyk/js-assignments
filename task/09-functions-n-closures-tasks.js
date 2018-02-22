@@ -183,5 +183,5 @@ module.exports = {
   retry,
   logger,
   partialUsingArguments,
-  getIdGeneratorFunction,
+  getIdGeneratorFunction
 };

@@ -54,11 +54,11 @@ describe('08-objects-tasks', () => {
     [
       {
         obj: [ 1, 2, 3],
-        expected: '[1,2,3]',
+        expected: '[1,2,3]'
       }, {
         obj: { height: 10, width: 20 },
-        expected: '{"height":10,"width":20}',
-      },
+        expected: '{"height":10,"width":20}'
+      }
     ].forEach(data => {
       assert.equal(
         tasks.getJSON(data.obj),
@@ -79,12 +79,12 @@ describe('08-objects-tasks', () => {
       {
         proto: tasks.Rectangle.prototype,
         json: '{ "width":10, "height":20 }',
-        expected: new tasks.Rectangle(10, 20),
+        expected: new tasks.Rectangle(10, 20)
       }, {
         proto: MockType.prototype,
         json: '{ "a":10, "b":20, "c":30 }',
-        expected: new MockType(10, 20, 30),
-      },
+        expected: new MockType(10, 20, 30)
+      }
     ].forEach(data => {
       const actual = tasks.fromJSON(data.proto, data.json);
       assert.deepEqual(
@@ -226,7 +226,7 @@ describe('08-objects-tasks', () => {
     [
       () => builder.element('table').element('div'),
       () => builder.id('id1').id('id2'),
-      () => builder.pseudoElement('after').pseudoElement('before'),
+      () => builder.pseudoElement('after').pseudoElement('before')
     ].forEach(fn => {
       assert.throws(
         fn,
@@ -240,7 +240,7 @@ describe('08-objects-tasks', () => {
     [
       () => builder.class('draggable').class('animated'),
       () => builder.attr('href').attr('title'),
-      () => builder.pseudoClass('invalid').pseudoClass('focus'),
+      () => builder.pseudoClass('invalid').pseudoClass('focus')
     ].forEach(fn => {
       assert.doesNotThrow(
         fn,
@@ -254,7 +254,7 @@ describe('08-objects-tasks', () => {
       () => builder.attr('href').class('download-link'),
       () => builder.pseudoClass('hover').attr('title'),
       () => builder.pseudoElement('after').pseudoClass('valid'),
-      () => builder.pseudoElement('after').id('id'),
+      () => builder.pseudoElement('after').id('id')
     ].forEach(fn => {
       assert.throws(
         fn,

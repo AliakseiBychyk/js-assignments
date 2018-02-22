@@ -1,4 +1,4 @@
-{ 
+{
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module"
@@ -8,31 +8,31 @@
     "node": true,
     "mocha": true
   },
-  "extends": ["airbnb-base", "eslint:recommended"],
+  "extends": [ "eslint:recommended"],
   "rules": {
-    "max-len": 0,
-    "no-unused-vars": [2, {"args": "none"}],
-    "require-yield": 1,
-    "no-new-wrappers": 0,
-    "no-prototype-builtins": 0,
-    "no-proto": 0,
-    "arrow-parens": [2, "as-needed"],
-    "no-sparse-arrays": 0,
-    "comma-spacing": [2, {"after": true}],
     "array-bracket-spacing": 0,
-    "func-names": [2, "as-needed"],
+    "arrow-parens": [ 2, "as-needed" ],
+    "comma-dangle": [ 2, "never" ],
+    "comma-spacing": [ 2, { "after": true } ],
+    "curly": [ 2, "multi-line" ],
+    "eqeqeq": 2,
+    "func-names": 0,
+    "indent": [2, 2],
+    "max-len": 0,
+    "no-console": [ 1, { "allow": ["info", "error", "warn"] }],
+    "no-new-wrappers": 0,
+    "no-proto": 0,
+    "no-prototype-builtins": 0,
     "no-restricted-syntax": 1,
     "no-unreachable": 1,
-    "no-plusplus": [
-      1,
-      {"allowForLoopAfterthoughts": true}
-    ],
-    "no-console": [
-      1,
+    "no-unused-expressions": 2,
+    "no-unused-vars": [ 2,
       {
-        "allow": ["info", "error", "warn"]
+      "args": "none",
+      "vars": "local"
       }
     ],
+    "semi": 2,
     "quotes": [
       2,
       "single",
@@ -40,6 +40,8 @@
         "avoidEscape": true,
         "allowTemplateLiterals": true
       }
-    ]
+    ],
+    "require-yield": 1,
+    "no-sparse-arrays": 0
   }
 }

@@ -9,18 +9,18 @@ describe('09-functions-n-closures-tasks', () => {
   it.optional('getComposition should return the composition of two functions', () => {
     [
       {
-        f: Math.sin, g: Math.asin, arg: 0, result: 0,
+        f: Math.sin, g: Math.asin, arg: 0, result: 0
       },
       {
-        f: x => x + 1, g: x => x + 1, arg: 1, result: 3,
+        f: x => x + 1, g: x => x + 1, arg: 1, result: 3
       },
       {
-        f: x => x * x, g: x => x + 2, arg: 5, result: 49,
-      },
+        f: x => x * x, g: x => x + 2, arg: 5, result: 49
+      }
     ].forEach(data => {
       const actual = tasks.getComposition(data.f, data.g);
       assert(
-        actual(data.arg) == data.result,
+        actual(data.arg) === data.result,
       );
     });
   });
@@ -44,18 +44,18 @@ describe('09-functions-n-closures-tasks', () => {
     [
       {
         polynom: tasks.getPolynom(2, 3, 5),
-        results: [ { x: 0, y: 5 }, { x: 2, y: 19 }, { x: 3, y: 32 } ],
+        results: [ { x: 0, y: 5 }, { x: 2, y: 19 }, { x: 3, y: 32 } ]
       }, {
         polynom: tasks.getPolynom(1, -3),
-        results: [ { x: 0, y: -3 }, { x: 2, y: -1 }, { x: 5, y: 2 } ],
+        results: [ { x: 0, y: -3 }, { x: 2, y: -1 }, { x: 5, y: 2 } ]
       }, {
         polynom: tasks.getPolynom(8),
-        results: [ { x: 0, y: 8 }, { x: 2, y: 8 }, { x: 5, y: 8 } ],
-      },
+        results: [ { x: 0, y: 8 }, { x: 2, y: 8 }, { x: 5, y: 8 } ]
+      }
     ].forEach(data => {
       data.results.forEach(test => {
         assert(
-          test.y == data.polynom(test.x),
+          test.y === data.polynom(test.x),
         );
       });
     });

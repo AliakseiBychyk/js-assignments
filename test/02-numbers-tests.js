@@ -90,7 +90,7 @@ describe('02-numbers-tasks', () => {
     assert.equal(true, tasks.isPrime(13), '13');
     assert.equal(true, tasks.isPrime(113), '113');
     assert.equal(false, tasks.isPrime(119), '119');
-  });119
+  });
 
   it.optional('toNumber should convert any value to number or return the default', () => {
     assert.equal(0, tasks.toNumber(null, 0));

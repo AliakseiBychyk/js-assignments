@@ -145,5 +145,5 @@ module.exports = {
   expandBraces,
   getZigZagMatrix,
   canDominoesMakeRow,
-  extractRanges,
+  extractRanges
 };

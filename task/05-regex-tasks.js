@@ -125,5 +125,5 @@ module.exports = {
   getRegexForPitSpot,
   getRegexForIPv4,
   getRegexForSSN,
-  getPasswordValidator,
+  getPasswordValidator
 };

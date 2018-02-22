@@ -97,7 +97,7 @@ UrlShortener.prototype = {
 
   decode(code) {
     throw new Error('Not implemented');
-  },
+  }
 };
 
 
@@ -105,5 +105,5 @@ module.exports = {
   findStringInSnakingPuzzle,
   getPermutations,
   getMostProfitFromStockQuotes,
-  UrlShortener,
+  UrlShortener
 };

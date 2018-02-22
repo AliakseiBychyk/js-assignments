@@ -135,5 +135,5 @@ export {
   getFibonacciSequence,
   depthTraversalTree,
   breadthTraversalTree,
-  mergeSortedSequences,
+  mergeSortedSequences
 };

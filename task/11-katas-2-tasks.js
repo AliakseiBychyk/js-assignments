@@ -96,7 +96,7 @@ const PokerRank = {
   ThreeOfKind: 3,
   TwoPairs: 2,
   OnePair: 1,
-  HighCard: 0,
+  HighCard: 0
 };
 
 function getPokerHandRank(hand) {
@@ -144,5 +144,5 @@ module.exports = {
   wrapText,
   PokerRank,
   getPokerHandRank,
-  getFigureRectangles,
+  getFigureRectangles
 };

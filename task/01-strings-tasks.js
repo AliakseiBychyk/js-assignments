@@ -192,7 +192,7 @@ function getRectangleString(width, height) {
       (el === 0
         ? (acc += `┌${'─'.repeat(width - 2)}┐\n`)
         : el === height - 1 ? (acc += `└${'─'.repeat(width - 2)}┘\n`) : (acc += `│${' '.repeat(width - 2)}│\n`)),
-    '',
+    ''
   );
 }
 
@@ -266,7 +266,7 @@ function isString(value) {
  */
 function getCardId(value) {
   const suits = {
-    '♣': 0, '♦': 13, '♥': 26, '♠': 39,
+    '♣': 0, '♦': 13, '♥': 26, '♠': 39
   };
   const cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   const suit = value.substr(-1, 1);
@@ -289,5 +289,5 @@ export {
   getRectangleString,
   encodeToRot13,
   isString,
-  getCardId,
+  getCardId
 };

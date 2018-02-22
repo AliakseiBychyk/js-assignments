@@ -242,5 +242,5 @@ export {
   getParallelipidedDiagonal,
   roundToPowerOfTen,
   isPrime,
-  toNumber,
+  toNumber
 };

@@ -5,9 +5,7 @@ const tasks = require('../task/07-yield-tasks');
 it.optional = require('../extensions/it-optional');
 
 describe('07-yield-tasks', () => {
-
   it.optional('get99BottlesOfBeer should return the sequence of song lyric lines', () => {
-
     const expected = [
       '99 bottles of beer on the wall, 99 bottles of beer.',
       'Take one down and pass it around, 98 bottles of beer on the wall.',
@@ -208,7 +206,7 @@ describe('07-yield-tasks', () => {
       '1 bottle of beer on the wall, 1 bottle of beer.',
       'Take one down and pass it around, no more bottles of beer on the wall.',
       'No more bottles of beer on the wall, no more bottles of beer.',
-      'Go to the store and buy some more, 99 bottles of beer on the wall.',
+      'Go to the store and buy some more, 99 bottles of beer on the wall.'
     ];
 
     let lineNo = 0;
@@ -229,11 +227,10 @@ describe('07-yield-tasks', () => {
 
 
   it.optional('getFibonacciSequence should return the Fibonacci sequence', () => {
-
     const expected = [
       0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181,
       6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269,
-      2178309, 3524578, 5702887, 9227465, 14930352, 24157817, 39088169,
+      2178309, 3524578, 5702887, 9227465, 14930352, 24157817, 39088169
     ];
 
     let index = 0;
@@ -246,12 +243,10 @@ describe('07-yield-tasks', () => {
       if (index >= expected.length) break;
     }
     if (index < expected.length) assert.fail(index, expected.length, `sequence length should be equal to ${expected.length}`);
-
   });
 
 
   it.optional('depthTraversalTree should return the sequence of tree nodes in depth-first order', () => {
-
     /*
        *     source tree (root = 1):
        *
@@ -272,11 +267,11 @@ describe('07-yield-tasks', () => {
       node6 = { n: 6 },
       node7 = { n: 7 },
       node8 = { n: 8 };
-    node1.children = [node2, node6, node7];
-    node2.children = [node3, node4];
-    node4.children = [node5];
-    node7.children = [node8];
-    const expected = [node1, node2, node3, node4, node5, node6, node7, node8];
+    node1.children = [node2, node6, node7 ];
+    node2.children = [node3, node4 ];
+    node4.children = [node5 ];
+    node7.children = [node8 ];
+    const expected = [node1, node2, node3, node4, node5, node6, node7, node8 ];
     let index = 0;
     for (const num of tasks.depthTraversalTree(node1)) {
       if (index >= expected.length) assert.fail(index, expected.length, `sequence length should be equal to ${expected.length}`);
@@ -294,7 +289,7 @@ describe('07-yield-tasks', () => {
   function createDeepTree() {
     let root = { n: MAX_NODE_COUNT };
     for (let i = MAX_NODE_COUNT - 1; i > 0; i--) {
-      root = { n: i, children: [root] };
+      root = { n: i, children: [root ] };
     }
     return root;
   }
@@ -339,7 +334,6 @@ describe('07-yield-tasks', () => {
 
 
   it.optional('breadthTraversalTree should return the sequence of tree nodes in depth-first order', () => {
-
     /*
        *     source tree (root = 1):
        *
@@ -360,11 +354,11 @@ describe('07-yield-tasks', () => {
       node6 = { n: 6 },
       node7 = { n: 7 },
       node8 = { n: 8 };
-    node1.children = [node2, node3, node4];
-    node2.children = [node5, node6];
-    node4.children = [node7];
-    node6.children = [node8];
-    const expected = [node1, node2, node3, node4, node5, node6, node7, node8];
+    node1.children = [node2, node3, node4 ];
+    node2.children = [node5, node6 ];
+    node4.children = [node7 ];
+    node6.children = [node8 ];
+    const expected = [node1, node2, node3, node4, node5, node6, node7, node8 ];
     let index = 0;
     for (const num of tasks.breadthTraversalTree(node1)) {
       if (index >= expected.length) assert.fail(null, null, `sequence length should be equal to ${expected.length}`);
@@ -426,7 +420,7 @@ describe('07-yield-tasks', () => {
         expected++,
       );
       count++;
-      if (count == ITEMS_COUNT) break;
+      if (count === ITEMS_COUNT) break;
     }
     assert.equal(count, ITEMS_COUNT);
 
@@ -440,7 +434,7 @@ describe('07-yield-tasks', () => {
       );
       expected += 2;
       count++;
-      if (count == ITEMS_COUNT) break;
+      if (count === ITEMS_COUNT) break;
     }
     assert.equal(count, ITEMS_COUNT);
 
@@ -455,9 +449,8 @@ describe('07-yield-tasks', () => {
       );
       expected += 2;
       count++;
-      if (count == ITEMS_COUNT) break;
+      if (count === ITEMS_COUNT) break;
     }
     assert.equal(count, ITEMS_COUNT);
-
   });
 });

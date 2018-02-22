@@ -77,13 +77,13 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-  const span = endDate.getTime() - startDate.getTime()
-  const hours = Math.floor(span / 3600000)
-  const minutes = Math.floor((span - hours * 3600000) / 60000)
-  const seconds = Math.floor((span - hours * 3600000 - minutes * 60000) / 1000) 
-  const rest = Math.floor((span - hours * 3600000 - minutes * 60000 - seconds * 1000))
+  const span = endDate.getTime() - startDate.getTime();
+  const hours = Math.floor(span / 3600000);
+  const minutes = Math.floor((span - hours * 3600000) / 60000);
+  const seconds = Math.floor((span - hours * 3600000 - minutes * 60000) / 1000);
+  const rest = Math.floor((span - hours * 3600000 - minutes * 60000 - seconds * 1000));
 
-  return `${('0' + hours).slice(-2)}:${('0' + minutes).slice(-2)}:${('0' + seconds).slice(-2)}.${('00'+rest).slice(-3)}`
+  return `${(`0${hours}`).slice(-2)}:${(`0${minutes}`).slice(-2)}:${(`0${seconds}`).slice(-2)}.${(`00${rest}`).slice(-3)}`;
 }
 
 
@@ -101,14 +101,14 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-  const hours = date.getUTCHours()%12;
+  const hours = date.getUTCHours() % 12;
   const minutes = date.getUTCMinutes();
   const hoursAngleDegree = 0.5 * (60 * hours + minutes);
   const minutesAngleDegree = 6 * minutes;
   const angleDegree = Math.abs(hoursAngleDegree - minutesAngleDegree);
-  const angleRadians = angleDegree * Math.PI / 180
+  const angleRadians = angleDegree * Math.PI / 180;
 
-  return angleDegree <= 180 ? angleRadians : angleRadians - Math.PI
+  return angleDegree <= 180 ? angleRadians : angleRadians - Math.PI;
 }
 
 
@@ -117,5 +117,5 @@ export {
   parseDataFromIso8601,
   isLeapYear,
   timeSpanToString,
-  angleBetweenClockHands,
+  angleBetweenClockHands
 };
