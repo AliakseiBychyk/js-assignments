@@ -1,103 +1,117 @@
+import assert from 'assert';
+import {
+  getRectangleArea,
+  getCicleCircumference,
+  getAverage,
+  getDistanceBetweenPoints,
+  getLinearEquationRoot,
+  getAngleBetweenVectors,
+  getLastDigit,
+  parseNumberFromString,
+  getParallelipidedDiagonal,
+  roundToPowerOfTen,
+  isPrime,
+  toNumber
+} from '../task/02-numbers-tasks';
 
-
-const assert = require('assert');
-const tasks = require('../task/02-numbers-tasks');
 it.optional = require('../extensions/it-optional');
 
 describe('02-numbers-tasks', () => {
-
   it.optional('getRectangleArea should return a square of rectangle', () => {
-    assert.equal(50, tasks.getRectangleArea(5, 10));
-    assert.equal(25, tasks.getRectangleArea(5, 5));
+    assert.equal(getRectangleArea(5, 10), 50);
+    assert.equal(getRectangleArea(5, 5), 25);
   });
 
   it.optional('getCicleCircumference should return a circumference of cicle', () => {
-    assert.equal(31.41592653589793, tasks.getCicleCircumference(5));
-    assert.equal(19.729201864543903, tasks.getCicleCircumference(3.14));
-    assert.equal(0, tasks.getCicleCircumference(0));
+    assert.equal(getCicleCircumference(5), 31.41592653589793);
+    assert.equal(getCicleCircumference(3.14), 19.729201864543903);
+    assert.equal(getCicleCircumference(0), 0);
   });
 
   it.optional('getAverage should return an average of two numbers', () => {
-    assert.equal(5, tasks.getAverage(5, 5));
-    assert.equal(5, tasks.getAverage(10, 0));
-    assert.equal(0, tasks.getAverage(-3, 3));
-    assert.equal(Number.MAX_VALUE - 1, tasks.getAverage(Number.MAX_VALUE - 2, Number.MAX_VALUE));
-    assert.equal(Number.MAX_VALUE / 4, tasks.getAverage(Number.MAX_VALUE, -Number.MAX_VALUE / 2));
+    assert.equal(getAverage(5, 5), 5);
+    assert.equal(getAverage(10, 0), 5);
+    assert.equal(getAverage(-3, 3), 0);
+    assert.equal(getAverage(Number.MAX_VALUE - 2, Number.MAX_VALUE), Number.MAX_VALUE - 1);
+    assert.equal(getAverage(Number.MAX_VALUE, -Number.MAX_VALUE / 2), Number.MAX_VALUE / 4);
   });
 
   it.optional('getDistanceBetweenPoints should return a distance between points', () => {
-    assert.equal(1, tasks.getDistanceBetweenPoints(0, 0, 0, 1));
-    assert.equal(1, tasks.getDistanceBetweenPoints(0, 0, 1, 0));
-    assert.equal(18.027756377319946, tasks.getDistanceBetweenPoints(-5, 0, 10, -10));
+    assert.equal(getDistanceBetweenPoints(0, 0, 0, 1), 1);
+    assert.equal(getDistanceBetweenPoints(0, 0, 1, 0), 1);
+    assert.equal(getDistanceBetweenPoints(-5, 0, 10, -10), 18.027756377319946);
   });
 
   it.optional('getLinearEquationRoot should return a root of linear equation', () => {
-    assert.equal(2, tasks.getLinearEquationRoot(5, -10));
-    assert.equal(-8, tasks.getLinearEquationRoot(1, 8));
-    assert.equal(0, tasks.getLinearEquationRoot(5, 0));
+    assert.equal(getLinearEquationRoot(5, -10), 2);
+    assert.equal(getLinearEquationRoot(1, 8), -8);
+    assert.equal(getLinearEquationRoot(5, 0), 0);
   });
 
   it.optional('getAngleBetweenVectors should return a angle (in radians) between two linear vectors', () => {
-    assert.equal(Math.PI / 2, tasks.getAngleBetweenVectors(1, 0, 0, 1));
-    assert.equal(Math.PI, tasks.getAngleBetweenVectors(0, 1, 0, -1));
-    assert.equal(Math.PI / 2, tasks.getAngleBetweenVectors(0, -1, 1, 0));
-    assert.equal(0, tasks.getAngleBetweenVectors(0, 1, 0, 1));
+    assert.equal(getAngleBetweenVectors(1, 0, 0, 1), Math.PI / 2);
+    assert.equal(getAngleBetweenVectors(0, 1, 0, -1), Math.PI);
+    assert.equal(getAngleBetweenVectors(0, -1, 1, 0), Math.PI / 2);
+    assert.equal(getAngleBetweenVectors(0, 1, 0, 1), 0);
   });
 
   it.optional('getLastDigit should return a last digit of the number', () => {
-    assert.equal(0, tasks.getLastDigit(100));
-    assert.equal(7, tasks.getLastDigit(37));
-    assert.equal(5, tasks.getLastDigit(5));
-    assert.equal(0, tasks.getLastDigit(0));
+    assert.equal(getLastDigit(100), 0);
+    assert.equal(getLastDigit(37), 7);
+    assert.equal(getLastDigit(5), 5);
+    assert.equal(getLastDigit(0), 0);
   });
 
   it.optional('parseNumberFromString should return a number from the given string representation', () => {
-    assert.equal(100, tasks.parseNumberFromString('100'));
-    assert.equal(37, tasks.parseNumberFromString('37'));
-    assert.equal(-525.5, tasks.parseNumberFromString('-525.5'));
+    assert.equal(parseNumberFromString('100'), 100);
+    assert.equal(parseNumberFromString('37'), 37);
+    assert.equal(parseNumberFromString('-525.5'), -525.5);
   });
 
   it.optional('getParallelipidedDiagonal should return a diagonal length of the rectagular parallepiped', () => {
-    assert.equal(Math.sqrt(3), tasks.getParallelipidedDiagonal(1, 1, 1));
-    assert.equal(Math.sqrt(27), tasks.getParallelipidedDiagonal(3, 3, 3));
-    // assert.equal(Math.sqrt(14), tasks.getParallelipidedDiagonal(1,2,3));
+    assert.equal(getParallelipidedDiagonal(1, 1, 1), Math.sqrt(3));
+    assert.equal(getParallelipidedDiagonal(3, 3, 3), Math.sqrt(27));
+    assert.equal(
+      Math.round(getParallelipidedDiagonal(1, 2, 3), 15),
+      Math.round(Math.sqrt(14), 15)
+    );
   });
 
   it.optional('roundToPowerOfTen should return an number rounded to specified power of 10', () => {
-    assert.equal(1234, tasks.roundToPowerOfTen(1234, 0));
-    assert.equal(1230, tasks.roundToPowerOfTen(1234, 1));
-    assert.equal(1200, tasks.roundToPowerOfTen(1234, 2));
-    assert.equal(1000, tasks.roundToPowerOfTen(1234, 3));
+    assert.equal(roundToPowerOfTen(1234, 0), 1234);
+    assert.equal(roundToPowerOfTen(1234, 1), 1230);
+    assert.equal(roundToPowerOfTen(1234, 2), 1200);
+    assert.equal(roundToPowerOfTen(1234, 3), 1000);
 
-    assert.equal(9678, tasks.roundToPowerOfTen(9678, 0));
-    assert.equal(9680, tasks.roundToPowerOfTen(9678, 1));
-    assert.equal(9700, tasks.roundToPowerOfTen(9678, 2));
-    assert.equal(10000, tasks.roundToPowerOfTen(9678, 3));
+    assert.equal(roundToPowerOfTen(9678, 0), 9678);
+    assert.equal(roundToPowerOfTen(9678, 1), 9680);
+    assert.equal(roundToPowerOfTen(9678, 2), 9700);
+    assert.equal(roundToPowerOfTen(9678, 3), 10000);
   });
 
   it.optional('isPrime should return true if specified number is prime', () => {
-    assert.equal(true, tasks.isPrime(2), '2');
-    assert.equal(true, tasks.isPrime(3), '3');
-    assert.equal(false, tasks.isPrime(4), '4');
-    assert.equal(true, tasks.isPrime(5), '5');
-    assert.equal(false, tasks.isPrime(6), '6');
-    assert.equal(true, tasks.isPrime(7), '7');
-    assert.equal(false, tasks.isPrime(8), '8');
-    assert.equal(false, tasks.isPrime(9), '9');
-    assert.equal(false, tasks.isPrime(10), '10');
-    assert.equal(true, tasks.isPrime(11), '11');
-    assert.equal(false, tasks.isPrime(12), '12');
-    assert.equal(true, tasks.isPrime(13), '13');
-    assert.equal(true, tasks.isPrime(113), '113');
-    assert.equal(false, tasks.isPrime(119), '119');
+    assert.equal(isPrime(2), true, '2');
+    assert.equal(isPrime(3), true, '3');
+    assert.equal(isPrime(4), false, '4');
+    assert.equal(isPrime(5), true, '5');
+    assert.equal(isPrime(6), false, '6');
+    assert.equal(isPrime(7), true, '7');
+    assert.equal(isPrime(8), false, '8');
+    assert.equal(isPrime(9), false, '9');
+    assert.equal(isPrime(10), false, '10');
+    assert.equal(isPrime(11), true, '11');
+    assert.equal(isPrime(12), false, '12');
+    assert.equal(isPrime(13), true, '13');
+    assert.equal(isPrime(113), true, '113');
+    assert.equal(isPrime(119), false, '119');
   });
 
   it.optional('toNumber should convert any value to number or return the default', () => {
-    assert.equal(0, tasks.toNumber(null, 0));
-    assert.equal(0, tasks.toNumber('test', 0));
-    assert.equal(1, tasks.toNumber('1', 0));
-    assert.equal(42, tasks.toNumber(42, 0));
-    assert.equal(42, tasks.toNumber(new Number(42), 0));
-    assert.equal(-1, tasks.toNumber(undefined, -1));
+    assert.equal(toNumber(null, 0), 0);
+    assert.equal(toNumber('test', 0), 0);
+    assert.equal(toNumber('1', 0), 1);
+    assert.equal(toNumber(42, 0), 42);
+    assert.equal(toNumber(new Number(42), 0), 42);
+    assert.equal(toNumber(undefined, -1), -1);
   });
 });

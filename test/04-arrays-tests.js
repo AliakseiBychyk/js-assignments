@@ -1,30 +1,61 @@
+import assert from 'assert';
+import tasks, {
+  findElement,
+  generateOdds,
+  doubleArray,
+  getArrayOfPositives,
+  getArrayOfStrings,
+  removeFalsyValues,
+  getUpperCaseStrings,
+  getStringsLength,
+  insertItem,
+  getHead,
+  getTail,
+  toCsvText,
+  toStringList,
+  toArrayOfSquares,
+  getMovingSum,
+  getSecondItems,
+  propagateItemsByPositionIndex,
+  get3TopItems,
+  getPositivesCount,
+  sortDigitNamesByNumericOrder,
+  getItemsSum,
+  getFalsyValuesCount,
+  findAllOccurences,
+  sortCitiesArray,
+  getIdentityMatrix,
+  getIntervalArray,
+  distinct,
+  group,
+  selectMany,
+  getElementByIndexes,
+  swapHeadAndTail
+} from '../task/04-arrays-tasks';
 
-
-const assert = require('assert');
-const tasks = require('../task/04-arrays-tasks');
 it.optional = require('../extensions/it-optional');
 
 describe('04-arrays-tasks', () => {
   it.optional('findElement should return the index of specified value if exists', () => {
     [
       {
-        arr: ['Ace', 10, true ],
+        arr: ['Ace', 10, true],
         value: 10,
         expected: 1
       }, {
-        arr: ['Array', 'Number', 'string' ],
+        arr: ['Array', 'Number', 'string'],
         value: 'Date',
         expected: -1
       }, {
-        arr: [0, 1, 2, 3, 4, 5 ],
+        arr: [0, 1, 2, 3, 4, 5],
         value: 5,
         expected: 5
       }
     ].forEach(data => {
-      const actual = tasks.findElement(data.arr, data.value);
+      const actual = findElement(data.arr, data.value);
       assert.equal(
-        data.expected,
         actual,
+        data.expected,
         `Index of '${data.value}' inside of [${data.arr}] = ${data.expected}, but actually ${actual}`
       );
     });
@@ -35,21 +66,21 @@ describe('04-arrays-tasks', () => {
     [
       {
         len: 1,
-        expected: [ 1 ]
+        expected: [1]
       }, {
         len: 2,
-        expected: [ 1, 3 ]
+        expected: [1, 3]
       }, {
         len: 5,
-        expected: [ 1, 3, 5, 7, 9 ]
+        expected: [1, 3, 5, 7, 9]
       }, {
         len: 16,
-        expected: [ 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31 ]
+        expected: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]
       }
     ].forEach(data => {
       assert.deepEqual(
-        data.expected,
-        tasks.generateOdds(data.len)
+        generateOdds(data.len),
+        data.expected
       );
     });
   });
@@ -58,20 +89,20 @@ describe('04-arrays-tasks', () => {
   it.optional('doubleArray should return the specified array twice', () => {
     [
       {
-        arr: ['Ace', 10, true ],
-        expected: ['Ace', 10, true, 'Ace', 10, true ]
+        arr: ['Ace', 10, true],
+        expected: ['Ace', 10, true, 'Ace', 10, true]
       }, {
-        arr: [0, 1, 2, 3, 4, 5 ],
-        expected: [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5 ]
+        arr: [0, 1, 2, 3, 4, 5],
+        expected: [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5]
       }, {
         arr: [],
         expected: []
       }
     ].forEach(data => {
-      const actual = tasks.doubleArray(data.arr);
+      const actual = doubleArray(data.arr);
       assert.deepEqual(
-        data.expected,
         actual,
+        data.expected,
         `The result of doubling [${data.arr}] is not correct`
       );
     });
@@ -81,20 +112,20 @@ describe('04-arrays-tasks', () => {
   it.optional('getArrayOfPositives should return the array of positive values from specified array', () => {
     [
       {
-        arr: [ 0, 1, 2, 3, 4, 5 ],
-        expected: [ 1, 2, 3, 4, 5 ]
+        arr: [0, 1, 2, 3, 4, 5],
+        expected: [1, 2, 3, 4, 5]
       }, {
-        arr: [-1, 2, -5, -4, 0 ],
-        expected: [ 2 ]
+        arr: [-1, 2, -5, -4, 0],
+        expected: [2]
       }, {
         arr: [],
         expected: []
       }
     ].forEach(data => {
-      const actual = tasks.getArrayOfPositives(data.arr);
+      const actual = getArrayOfPositives(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -103,20 +134,20 @@ describe('04-arrays-tasks', () => {
   it.optional('getArrayOfStrings should return the array of string values from specified array', () => {
     [
       {
-        arr: [ 0, 1, 'cat', 3, true, 'dog' ],
-        expected: [ 'cat', 'dog' ]
+        arr: [0, 1, 'cat', 3, true, 'dog'],
+        expected: ['cat', 'dog']
       }, {
-        arr: [ 1, 2, 3, 4, 5 ],
-        expected: [ ]
+        arr: [1, 2, 3, 4, 5],
+        expected: []
       }, {
-        arr: [ 'cat', 'dog', 'raccon' ],
-        expected: [ 'cat', 'dog', 'raccon' ]
+        arr: ['cat', 'dog', 'raccon'],
+        expected: ['cat', 'dog', 'raccon']
       }
     ].forEach(data => {
-      const actual = tasks.getArrayOfStrings(data.arr);
+      const actual = getArrayOfStrings(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -125,20 +156,20 @@ describe('04-arrays-tasks', () => {
   it.optional('removeFalsyValues should return the specified array without falsy values', () => {
     [
       {
-        arr: [ 0, false, 'cat', NaN, true, '' ],
-        expected: [ 'cat', true ]
+        arr: [0, false, 'cat', NaN, true, ''],
+        expected: ['cat', true]
       }, {
-        arr: [ 1, 2, 3, 4, 5, 'false' ],
-        expected: [ 1, 2, 3, 4, 5, 'false' ]
+        arr: [1, 2, 3, 4, 5, 'false'],
+        expected: [1, 2, 3, 4, 5, 'false']
       }, {
-        arr: [ false, 0, NaN, '', undefined ],
-        expected: [ ]
+        arr: [false, 0, NaN, '', undefined],
+        expected: []
       }
     ].forEach(data => {
-      const actual = tasks.removeFalsyValues(data.arr);
+      const actual = removeFalsyValues(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -147,31 +178,31 @@ describe('04-arrays-tasks', () => {
   it.optional('findAllOccurences should return the number of all occurences of specified item in an array', () => {
     [
       {
-        arr: [ 0, 0, 1, 1, 1, 2 ],
+        arr: [0, 0, 1, 1, 1, 2],
         item: 1,
         expected: 3
       }, {
-        arr: [ 1, 2, 3, 4, 5 ],
+        arr: [1, 2, 3, 4, 5],
         item: 0,
         expected: 0
       }, {
-        arr: [ 'a', 'b', 'c', 'c' ],
+        arr: ['a', 'b', 'c', 'c'],
         item: 'c',
         expected: 2
       }, {
-        arr: [ null, undefined, null ],
+        arr: [null, undefined, null],
         item: null,
         expected: 2
       }, {
-        arr: [ true, 0, 1, 'true' ],
+        arr: [true, 0, 1, 'true'],
         item: true,
         expected: 1
       }
     ].forEach(data => {
-      const actual = tasks.findAllOccurences(data.arr, data.item);
+      const actual = findAllOccurences(data.arr, data.item);
       assert.equal(
-        data.expected,
         actual,
+        data.expected,
         `Number of occurences of ${JSON.stringify(data.item)} in ${JSON.stringify(data.arr)} is ${data.expected}, but actually ${actual})`
       );
     });
@@ -181,17 +212,17 @@ describe('04-arrays-tasks', () => {
   it.optional('getUpperCaseStrings should convert strings from specified array to uppercase', () => {
     [
       {
-        arr: [ 'permanent-internship', 'glutinous-shriek', 'multiplicative-elevation' ],
-        expected: [ 'PERMANENT-INTERNSHIP', 'GLUTINOUS-SHRIEK', 'MULTIPLICATIVE-ELEVATION' ]
+        arr: ['permanent-internship', 'glutinous-shriek', 'multiplicative-elevation'],
+        expected: ['PERMANENT-INTERNSHIP', 'GLUTINOUS-SHRIEK', 'MULTIPLICATIVE-ELEVATION']
       }, {
-        arr: [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ],
-        expected: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
+        arr: ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
+        expected: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
       }
     ].forEach(data => {
-      const actual = tasks.getUpperCaseStrings(data.arr);
+      const actual = getUpperCaseStrings(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -200,17 +231,17 @@ describe('04-arrays-tasks', () => {
   it.optional('getStringsLength should convert strings from specified array to uppercase', () => {
     [
       {
-        arr: [ '', 'a', 'bc', 'def', 'ghij' ],
-        expected: [ 0, 1, 2, 3, 4 ]
+        arr: ['', 'a', 'bc', 'def', 'ghij'],
+        expected: [0, 1, 2, 3, 4]
       }, {
-        arr: [ 'angular', 'react', 'ember' ],
-        expected: [ 7, 5, 5 ]
+        arr: ['angular', 'react', 'ember'],
+        expected: [7, 5, 5]
       }
     ].forEach(data => {
-      const actual = tasks.getStringsLength(data.arr);
+      const actual = getStringsLength(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -219,21 +250,21 @@ describe('04-arrays-tasks', () => {
   it.optional('insertItem should insert an item at specified position', () => {
     [
       {
-        arr: [ 1, 3, 4, 5 ],
+        arr: [1, 3, 4, 5],
         item: 2,
         index: 1,
-        expected: [ 1, 2, 3, 4, 5 ]
+        expected: [1, 2, 3, 4, 5]
       }, {
-        arr: [ 1, 'b', 'c' ],
+        arr: [1, 'b', 'c'],
         item: 'x',
         index: 0,
-        expected: [ 'x', 1, 'b', 'c' ]
+        expected: ['x', 1, 'b', 'c']
       }
     ].forEach(data => {
-      tasks.insertItem(data.arr, data.item, data.index);
+      insertItem(data.arr, data.item, data.index);
       assert.deepEqual(
-        data.expected,
-        data.arr
+        data.arr,
+        data.expected
       );
     });
   });
@@ -242,18 +273,18 @@ describe('04-arrays-tasks', () => {
   it.optional('getHead should return the n first items from the specified array', () => {
     [
       {
-        arr: [ 1, 2, 3, 4, 5 ],
+        arr: [1, 2, 3, 4, 5],
         n: 2,
-        expected: [ 1, 2 ]
+        expected: [1, 2]
       }, {
-        arr: [ 'a', 'b', 'c', 'd' ],
+        arr: ['a', 'b', 'c', 'd'],
         n: 3,
-        expected: [ 'a', 'b', 'c' ]
+        expected: ['a', 'b', 'c']
       }
     ].forEach(data => {
       assert.deepEqual(
-        data.expected,
-        tasks.getHead(data.arr, data.n)
+        getHead(data.arr, data.n),
+        data.expected
       );
     });
   });
@@ -262,18 +293,18 @@ describe('04-arrays-tasks', () => {
   it.optional('getTail should return the n last items from the specified array', () => {
     [
       {
-        arr: [ 1, 2, 3, 4, 5 ],
+        arr: [1, 2, 3, 4, 5],
         n: 2,
-        expected: [ 4, 5 ]
+        expected: [4, 5]
       }, {
-        arr: [ 'a', 'b', 'c', 'd' ],
+        arr: ['a', 'b', 'c', 'd'],
         n: 3,
-        expected: [ 'b', 'c', 'd' ]
+        expected: ['b', 'c', 'd']
       }
     ].forEach(data => {
       assert.deepEqual(
-        data.expected,
-        tasks.getTail(data.arr, data.n)
+        getTail(data.arr, data.n),
+        data.expected
       );
     });
   });
@@ -283,10 +314,10 @@ describe('04-arrays-tasks', () => {
     [
       {
         arr: [
-          [ 0, 1, 2, 3, 4 ],
-          [ 10, 11, 12, 13, 14 ],
-          [ 20, 21, 22, 23, 24 ],
-          [ 30, 31, 32, 33, 34 ]
+          [0, 1, 2, 3, 4],
+          [10, 11, 12, 13, 14],
+          [20, 21, 22, 23, 24],
+          [30, 31, 32, 33, 34]
         ],
         expected:
                         '0,1,2,3,4\n'
@@ -294,14 +325,14 @@ describe('04-arrays-tasks', () => {
                       + '20,21,22,23,24\n'
                       + '30,31,32,33,34'
       }, {
-        arr: [[] ],
+        arr: [[]],
         expected: ''
       }
     ].forEach(data => {
-      const actual = tasks.toCsvText(data.arr);
+      const actual = toCsvText(data.arr);
       assert.equal(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -310,17 +341,17 @@ describe('04-arrays-tasks', () => {
   it.optional('toArrayOfSquares should convert numeric array to the array of squares', () => {
     [
       {
-        arr: [ 0, 1, 2, 3, 4, 5 ],
-        expected: [ 0, 1, 4, 9, 16, 25 ]
+        arr: [0, 1, 2, 3, 4, 5],
+        expected: [0, 1, 4, 9, 16, 25]
       }, {
-        arr: [ 10, 100, -1 ],
-        expected: [ 100, 10000, 1 ]
+        arr: [10, 100, -1],
+        expected: [100, 10000, 1]
       }
     ].forEach(data => {
-      const actual = tasks.toArrayOfSquares(data.arr);
+      const actual = toArrayOfSquares(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -329,23 +360,23 @@ describe('04-arrays-tasks', () => {
   it.optional('getMovingSum should convert numeric array to the according array of moving sum', () => {
     [
       {
-        arr: [ 1, 1, 1, 1, 1 ],
-        expected: [ 1, 2, 3, 4, 5 ]
+        arr: [1, 1, 1, 1, 1],
+        expected: [1, 2, 3, 4, 5]
       }, {
-        arr: [ 10, -10, 10, -10, 10 ],
-        expected: [ 10, 0, 10, 0, 10 ]
+        arr: [10, -10, 10, -10, 10],
+        expected: [10, 0, 10, 0, 10]
       }, {
-        arr: [ 0, 0, 0, 0, 0 ],
-        expected: [ 0, 0, 0, 0, 0 ]
+        arr: [0, 0, 0, 0, 0],
+        expected: [0, 0, 0, 0, 0]
       }, {
-        arr: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-        expected: [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
+        arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        expected: [1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
       }
     ].forEach(data => {
-      const actual = tasks.getMovingSum(data.arr);
+      const actual = getMovingSum(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -354,20 +385,20 @@ describe('04-arrays-tasks', () => {
   it.optional('getSecondItems should return every second item from the specified array', () => {
     [
       {
-        arr: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-        expected: [ 2, 4, 6, 8, 10 ]
+        arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        expected: [2, 4, 6, 8, 10]
       }, {
-        arr: [ 'a', 'b', 'c', null ],
-        expected: [ 'b', null ]
+        arr: ['a', 'b', 'c', null],
+        expected: ['b', null]
       }, {
-        arr: [ 'a' ],
-        expected: [ ]
+        arr: ['a'],
+        expected: []
       }
     ].forEach(data => {
-      const actual = tasks.getSecondItems(data.arr);
+      const actual = getSecondItems(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -379,23 +410,23 @@ describe('04-arrays-tasks', () => {
         arr: [],
         expected: []
       }, {
-        arr: [ 1 ],
-        expected: [ 1 ]
+        arr: [1],
+        expected: [1]
       }, {
-        arr: [ 'a', 'b' ],
-        expected: [ 'a', 'b', 'b' ]
+        arr: ['a', 'b'],
+        expected: ['a', 'b', 'b']
       }, {
-        arr: [ 'a', 'b', 'c', null ],
-        expected: [ 'a', 'b', 'b', 'c', 'c', 'c', null, null, null, null ]
+        arr: ['a', 'b', 'c', null],
+        expected: ['a', 'b', 'b', 'c', 'c', 'c', null, null, null, null]
       }, {
-        arr: [ 1, 2, 3, 4, 5 ],
-        expected: [ 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5 ]
+        arr: [1, 2, 3, 4, 5],
+        expected: [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
       }
     ].forEach(data => {
-      const actual = tasks.propagateItemsByPositionIndex(data.arr);
+      const actual = propagateItemsByPositionIndex(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -407,23 +438,29 @@ describe('04-arrays-tasks', () => {
         arr: [],
         expected: []
       }, {
-        arr: [ 1, 2 ],
-        expected: [ 2, 1 ]
+        arr: [1, 2],
+        expected: [2, 1]
       }, {
-        arr: [ 1, 2, 3 ],
-        expected: [ 3, 2, 1 ]
+        arr: [1, 2, 3],
+        expected: [3, 2, 1]
       }, {
-        arr: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-        expected: [ 10, 9, 8 ]
+        arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        expected: [10, 9, 8]
       }, {
-        arr: [ 10, 10, 10, 10 ],
-        expected: [ 10, 10, 10 ]
+        arr: [10, 10, 10, 10],
+        expected: [10, 10, 10]
+      }, {
+        arr: [4, 1, 9, 3, 1, 5],
+        expected: [9, 5, 4]
+      }, {
+        arr: [30, -4, -27, 0, -2],
+        expected: [30, 0, -2]
       }
     ].forEach(data => {
-      const actual = tasks.get3TopItems(data.arr);
+      const actual = get3TopItems(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -435,23 +472,26 @@ describe('04-arrays-tasks', () => {
         arr: [],
         expected: 0
       }, {
-        arr: [ -1, 0, 1 ],
+        arr: [-1, 0, 1],
         expected: 1
       }, {
-        arr: [ 1, 2, 3 ],
+        arr: [1, 2, 3],
         expected: 3
       }, {
-        arr: [ null, 1, 'elephant' ],
+        arr: [null, 1, 'elephant'],
         expected: 1
       }, {
-        arr: [ 1, '2' ],
+        arr: [1, '2'],
         expected: 1
+      }, {
+        arr: [1, '3', '-4', 0.5, -0.3],
+        expected: 2
       }
     ].forEach(data => {
-      const actual = tasks.getPositivesCount(data.arr);
+      const actual = getPositivesCount(data.arr);
       assert.equal(
-        data.expected,
         actual,
+        data.expected,
         `Test failed for argument [${data.arr}]`
       );
     });
@@ -464,26 +504,26 @@ describe('04-arrays-tasks', () => {
         arr: [],
         expected: []
       }, {
-        arr: [ 'nine', 'one' ],
-        expected: [ 'one', 'nine' ]
+        arr: ['nine', 'one'],
+        expected: ['one', 'nine']
       }, {
-        arr: [ 'one', 'two', 'three' ],
-        expected: [ 'one', 'two', 'three' ]
+        arr: ['one', 'two', 'three'],
+        expected: ['one', 'two', 'three']
       }, {
-        arr: [ 'nine', 'eight', 'nine', 'eight' ],
-        expected: [ 'eight', 'eight', 'nine', 'nine' ]
+        arr: ['nine', 'eight', 'nine', 'eight'],
+        expected: ['eight', 'eight', 'nine', 'nine']
       }, {
-        arr: [ 'one', 'one', 'one', 'zero' ],
-        expected: [ 'zero', 'one', 'one', 'one' ]
+        arr: ['one', 'one', 'one', 'zero'],
+        expected: ['zero', 'one', 'one', 'one']
       }, {
-        arr: [ 'nine', 'eight', 'seven', 'six', 'five', 'four', 'three', 'two', 'one', 'zero' ],
-        expected: [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' ]
+        arr: ['nine', 'eight', 'seven', 'six', 'five', 'four', 'three', 'two', 'one', 'zero'],
+        expected: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
       }
     ].forEach(data => {
-      const actual = tasks.sortDigitNamesByNumericOrder(data.arr);
+      const actual = sortDigitNamesByNumericOrder(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -492,20 +532,20 @@ describe('04-arrays-tasks', () => {
   it.optional('getItemsSum should return the sum of all items of numbers array', () => {
     [
       {
-        arr: [ ],
+        arr: [],
         expected: 0
       }, {
-        arr: [ 1, 2, 3 ],
+        arr: [1, 2, 3],
         expected: 6
       }, {
-        arr: [ 1, 10, 100, 1000 ],
+        arr: [1, 10, 100, 1000],
         expected: 1111
       }
     ].forEach(data => {
-      const actual = tasks.getItemsSum(data.arr);
+      const actual = getItemsSum(data.arr);
       assert.deepEqual(
-        data.expected,
         actual,
+        data.expected,
         `Test failed for [${data.arr}]`
       );
     });
@@ -515,23 +555,23 @@ describe('04-arrays-tasks', () => {
   it.optional('getFalsyValuesCount should return the number of falsy value in the specified array', () => {
     [
       {
-        arr: [ ],
+        arr: [],
         expected: 0
       }, {
-        arr: [ 1, '', 3 ],
+        arr: [1, '', 3],
         expected: 1
       }, {
-        arr: [ -1, 'false', null, 0 ],
+        arr: [-1, 'false', null, 0],
         expected: 2
       }, {
-        arr: [ null, undefined, NaN, false, 0, '' ],
+        arr: [null, undefined, NaN, false, 0, ''],
         expected: 6
       }
     ].forEach(data => {
-      const actual = tasks.getFalsyValuesCount(data.arr);
+      const actual = getFalsyValuesCount(data.arr);
       assert.deepEqual(
-        data.expected,
         actual,
+        data.expected,
         `Test failed for [${data.arr}]`
       );
     });
@@ -541,20 +581,20 @@ describe('04-arrays-tasks', () => {
   it.optional('toStringList should return the string list of passed arguments', () => {
     [
       {
-        arr: [ 0, false, 'cat', NaN, true, '' ],
+        arr: [0, false, 'cat', NaN, true, ''],
         expected: '0,false,cat,NaN,true,'
       }, {
-        arr: [ 1, 2, 3, 4, 5 ],
+        arr: [1, 2, 3, 4, 5],
         expected: '1,2,3,4,5'
       }, {
-        arr: [ 'rock', 'paper', 'scissors' ],
+        arr: ['rock', 'paper', 'scissors'],
         expected: 'rock,paper,scissors'
       }
     ].forEach(data => {
-      const actual = tasks.toStringList(data.arr);
+      const actual = toStringList(data.arr);
       assert.equal(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -627,10 +667,10 @@ describe('04-arrays-tasks', () => {
         ]
       }
     ].forEach(data => {
-      const actual = tasks.sortCitiesArray(data.arr);
+      const actual = sortCitiesArray(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -640,24 +680,24 @@ describe('04-arrays-tasks', () => {
     [
       {
         n: 1,
-        expected: [[1 ] ]
+        expected: [[1]]
       }, {
         n: 2,
-        expected: [[1, 0 ],
-          [0, 1 ] ]
+        expected: [[1, 0],
+          [0, 1]]
       }, {
         n: 5,
-        expected: [[1, 0, 0, 0, 0 ],
-          [0, 1, 0, 0, 0 ],
-          [0, 0, 1, 0, 0 ],
-          [0, 0, 0, 1, 0 ],
-          [0, 0, 0, 0, 1 ] ]
+        expected: [[1, 0, 0, 0, 0],
+          [0, 1, 0, 0, 0],
+          [0, 0, 1, 0, 0],
+          [0, 0, 0, 1, 0],
+          [0, 0, 0, 0, 1]]
       }
     ].forEach(data => {
-      const actual = tasks.getIdentityMatrix(data.n);
+      const actual = getIdentityMatrix(data.n);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -668,11 +708,11 @@ describe('04-arrays-tasks', () => {
       {
         start: 1,
         end: 5,
-        expected: [ 1, 2, 3, 4, 5 ]
+        expected: [1, 2, 3, 4, 5]
       }, {
         start: -2,
         end: 2,
-        expected: [ -2, -1, 0, 1, 2 ]
+        expected: [-2, -1, 0, 1, 2]
       }, {
         start: 0,
         end: 100,
@@ -687,13 +727,13 @@ describe('04-arrays-tasks', () => {
       }, {
         start: 3,
         end: 3,
-        expected: [ 3 ]
+        expected: [3]
       }
     ].forEach(data => {
-      const actual = tasks.getIntervalArray(data.start, data.end);
+      const actual = getIntervalArray(data.start, data.end);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -702,23 +742,23 @@ describe('04-arrays-tasks', () => {
   it.optional('distinct should return an array of unique items from the specified array', () => {
     [
       {
-        arr: [ 1, 2, 3, 3, 2, 1 ],
-        expected: [ 1, 2, 3 ]
+        arr: [1, 2, 3, 3, 2, 1],
+        expected: [1, 2, 3]
       }, {
-        arr: [ 'a', 'a', 'a', 'a', 'a' ],
-        expected: [ 'a' ]
+        arr: ['a', 'a', 'a', 'a', 'a'],
+        expected: ['a']
       }, {
-        arr: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-        expected: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+        arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        expected: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
       }, {
-        arr: [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 ],
-        expected: [ 1, 2, 3, 4, 5, 6 ]
+        arr: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
+        expected: [1, 2, 3, 4, 5, 6]
       }
     ].forEach(data => {
-      const actual = tasks.distinct(data.arr);
+      const actual = distinct(data.arr);
       assert.deepEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -738,9 +778,9 @@ describe('04-arrays-tasks', () => {
         keySelector: item => item.country,
         valueSelector: item => item.city,
         expected: new Map([
-          ['Belarus', ['Brest', 'Grodno', 'Minsk' ] ],
-          ['Russia', ['Omsk', 'Samara' ] ],
-          ['Poland', ['Lodz' ] ]
+          ['Belarus', ['Brest', 'Grodno', 'Minsk']],
+          ['Russia', ['Omsk', 'Samara']],
+          ['Poland', ['Lodz']]
         ])
       }, {
         arr: [
@@ -754,17 +794,17 @@ describe('04-arrays-tasks', () => {
         keySelector: item => item.artist,
         valueSelector: item => item.album,
         expected: new Map([
-          ['ACDC', ['Highway to Hell', 'Back in Black' ] ],
-          ['Metallica', ["Kill'em All", 'And Justice for All' ] ],
-          ['Deep Purple', ['Machine Head' ] ],
-          ['Manowar', ['Kings of Metal' ] ]
+          ['ACDC', ['Highway to Hell', 'Back in Black']],
+          ['Metallica', ["Kill'em All", 'And Justice for All']],
+          ['Deep Purple', ['Machine Head']],
+          ['Manowar', ['Kings of Metal']]
         ])
       }
     ].forEach(data => {
-      const actual = tasks.group(data.arr, data.keySelector, data.valueSelector);
+      const actual = group(data.arr, data.keySelector, data.valueSelector);
       assert.deepEqual(
-        Array.from(data.expected),
-        Array.from(actual)
+        Array.from(actual),
+        Array.from(data.expected)
       );
     });
   });
@@ -773,23 +813,23 @@ describe('04-arrays-tasks', () => {
   it.optional('selectMany should return an array of child items from the specified array', () => {
     [
       {
-        arr: [[1, 2 ], [3, 4 ], [5, 6 ] ],
+        arr: [[1, 2], [3, 4], [5, 6]],
         childrenSelector: x => x,
-        expected: [ 1, 2, 3, 4, 5, 6 ]
+        expected: [1, 2, 3, 4, 5, 6]
       }, {
-        arr: [[11, 12, 13, 14, 15 ], [21, 22, , 23, 24, 25 ], [31, 32, 34, 35 ] ],
+        arr: [[11, 12, 13, 14, 15], [21, 22, , 23, 24, 25], [31, 32, 34, 35]],
         childrenSelector: x => x.slice(0, 2),
-        expected: [ 11, 12, 21, 22, 31, 32 ]
+        expected: [11, 12, 21, 22, 31, 32]
       }, {
-        arr: ['one', 'two', 'three' ],
+        arr: ['one', 'two', 'three'],
         childrenSelector: x => x.split(''),
-        expected: ['o', 'n', 'e', 't', 'w', 'o', 't', 'h', 'r', 'e', 'e' ]
+        expected: ['o', 'n', 'e', 't', 'w', 'o', 't', 'h', 'r', 'e', 'e']
       }
     ].forEach(data => {
-      const actual = tasks.selectMany(data.arr, data.childrenSelector);
+      const actual = selectMany(data.arr, data.childrenSelector);
       assert.deepStrictEqual(
-        data.expected,
-        actual
+        actual,
+        data.expected
       );
     });
   });
@@ -798,23 +838,23 @@ describe('04-arrays-tasks', () => {
   it.optional('getElementByIndexes should return an element from array by specified indexes', () => {
     [
       {
-        arr: [ [1, 2 ], [3, 4 ], [5, 6 ] ],
-        indexes: [ 0, 0 ],
+        arr: [[1, 2], [3, 4], [5, 6]],
+        indexes: [0, 0],
         expected: 1
       }, {
-        arr: ['one', 'two', 'three' ],
-        indexes: [ 2 ],
+        arr: ['one', 'two', 'three'],
+        indexes: [2],
         expected: 'three'
       }, {
-        arr: [[[1, 2, 3 ] ] ],
-        indexes: [ 0, 0, 1 ],
+        arr: [[[1, 2, 3]]],
+        indexes: [0, 0, 1],
         expected: 2
       }
     ].forEach(data => {
-      const actual = tasks.getElementByIndexes(data.arr, data.indexes);
+      const actual = getElementByIndexes(data.arr, data.indexes);
       assert.equal(
-        data.expected,
         actual,
+        data.expected,
         `getElementByIndexes(${JSON.stringify(data.arr)}, ${JSON.stringify(data.indexes)}) returns an incorrect result. Expected ${data.expected}, but actual ${actual}`
       );
     });
@@ -824,26 +864,26 @@ describe('04-arrays-tasks', () => {
   it.optional('swapHeadAndTail should swap the head and tail of the array', () => {
     [
       {
-        arr: [ 1 ],
-        expected: [ 1 ]
+        arr: [1],
+        expected: [1]
       }, {
-        arr: [ 1, 2 ],
-        expected: [ 2, 1 ]
+        arr: [1, 2],
+        expected: [2, 1]
       }, {
-        arr: [ 1, 2, 3 ],
-        expected: [ 3, 2, 1 ]
+        arr: [1, 2, 3],
+        expected: [3, 2, 1]
       }, {
-        arr: [ 1, 2, 3, 4 ],
-        expected: [ 3, 4, 1, 2 ]
+        arr: [1, 2, 3, 4],
+        expected: [3, 4, 1, 2]
       }, {
-        arr: [ 1, 2, 3, 4, 5 ],
-        expected: [ 4, 5, 3, 1, 2 ]
+        arr: [1, 2, 3, 4, 5],
+        expected: [4, 5, 3, 1, 2]
       }
     ].forEach(data => {
-      const actual = tasks.swapHeadAndTail(Array.from(data.arr));
+      const actual = swapHeadAndTail(Array.from(data.arr));
       assert.deepEqual(
-        data.expected,
         actual,
+        data.expected,
         `The result of swaping head and tail [${data.arr}] is not correct`
       );
     });
