@@ -1,5 +1,4 @@
 
-
 /** ******************************************************************************************
  *                                                                                          *
  * Plese read the following tutorial before implementing tasks:                             *
@@ -21,7 +20,7 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(width, height) {
+export function getRectangleArea(width, height) {
   return width * height;
 }
 
@@ -37,7 +36,7 @@ function getRectangleArea(width, height) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCicleCircumference(radius) {
+export function getCicleCircumference(radius) {
   return radius * 2 * Math.PI;
 }
 
@@ -53,7 +52,7 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(value1, value2) {
+export function getAverage(value1, value2) {
   return value1 / 2 + value2 / 2;
 }
 
@@ -72,7 +71,7 @@ function getAverage(value1, value2) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(x1, y1, x2, y2) {
+export function getDistanceBetweenPoints(x1, y1, x2, y2) {
   return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 }
 
@@ -88,13 +87,14 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(a, b) {
+export function getLinearEquationRoot(a, b) {
   return -b / a;
 }
 
 
 /**
- * Returns an angle (in radians) between two vectors given by xi and yi, coordinates in Cartesian plane
+ * Returns an angle (in radians) between two vectors given by xi and yi, coordinates
+ * in Cartesian plane
  * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
  *
  * @param {number} x1
@@ -110,7 +110,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(x1, y1, x2, y2) {
+export function getAngleBetweenVectors(x1, y1, x2, y2) {
   const dotProduct = x1 * x2 + y1 * y2;
   const magnitude = (x, y) => Math.hypot(x, y);
   return Math.acos(dotProduct / (magnitude(x1, y1) * magnitude(x2, y2)));
@@ -128,7 +128,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(value) {
+export function getLastDigit(value) {
   return parseInt((`${value}`).substr(-1, 1));
 }
 
@@ -144,7 +144,7 @@ function getLastDigit(value) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(value) {
+export function parseNumberFromString(value) {
   return Number(value);
 }
 
@@ -161,7 +161,7 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(a, b, c) {
+export function getParallelipidedDiagonal(a, b, c) {
   return Math.hypot(a, b, c);
 }
 
@@ -182,7 +182,7 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(num, pow) {
+export function roundToPowerOfTen(num, pow) {
   const factor = 10 ** pow;
   return Math.round(num / factor) * factor;
 }
@@ -204,7 +204,7 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(n) {
+export function isPrime(n) {
   for (let i = 2; i < n; i++) {
     if (n % i === 0) return false;
   }
@@ -226,21 +226,6 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(value, def) {
+export function toNumber(value, def) {
   return isNaN(+value) ? def : +value;
 }
-
-export {
-  getRectangleArea,
-  getCicleCircumference,
-  getAverage,
-  getDistanceBetweenPoints,
-  getLinearEquationRoot,
-  getAngleBetweenVectors,
-  getLastDigit,
-  parseNumberFromString,
-  getParallelipidedDiagonal,
-  roundToPowerOfTen,
-  isPrime,
-  toNumber
-};

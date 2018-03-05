@@ -1,5 +1,4 @@
 
-
 /** ******************************************************************************************
  *                                                                                          *
  * Plese read the following tutorial before implementing tasks:                             *
@@ -21,7 +20,7 @@
  *    'Tue, 26 Jan 2016 13:48:02 GMT' => Date()
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
-function parseDataFromRfc2822(value) {
+export function parseDataFromRfc2822(value) {
   return Date.parse(value);
 }
 
@@ -36,7 +35,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T16:07:37+00:00'    => Date()
  *    '2016-01-19T08:07:37Z' => Date()
  */
-function parseDataFromIso8601(value) {
+export function parseDataFromIso8601(value) {
   return Date.parse(value);
 }
 
@@ -55,7 +54,7 @@ function parseDataFromIso8601(value) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
-function isLeapYear(date) {
+export function isLeapYear(date) {
   const year = date.getYear() + 1900;
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
@@ -76,7 +75,7 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-function timeSpanToString(startDate, endDate) {
+export function timeSpanToString(startDate, endDate) {
   const span = endDate.getTime() - startDate.getTime();
   const hours = Math.floor(span / 3600000);
   const minutes = Math.floor((span - hours * 3600000) / 60000);
@@ -88,7 +87,8 @@ function timeSpanToString(startDate, endDate) {
 
 
 /**
- * Returns the angle (in radians) between the hands of an analog clock for the specified Greenwich time.
+ * Returns the angle (in radians) between the hands of an analog clock for the
+ * specified Greenwich time.
  * If you have problem with solution please read: https://en.wikipedia.org/wiki/Clock_angle_problem
  *
  * @param {date} date
@@ -100,7 +100,7 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,18, 0) => Math.PI
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
-function angleBetweenClockHands(date) {
+export function angleBetweenClockHands(date) {
   const hours = date.getUTCHours() % 12;
   const minutes = date.getUTCMinutes();
   const hoursAngleDegree = 0.5 * (60 * hours + minutes);
@@ -110,12 +110,3 @@ function angleBetweenClockHands(date) {
 
   return angleDegree <= 180 ? angleRadians : angleRadians - Math.PI;
 }
-
-
-export {
-  parseDataFromRfc2822,
-  parseDataFromIso8601,
-  isLeapYear,
-  timeSpanToString,
-  angleBetweenClockHands
-};

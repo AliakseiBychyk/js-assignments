@@ -23,7 +23,6 @@ import {
 it.optional = require('../extensions/it-optional');
 
 describe('06-conditions-n-loops-tasks', () => {
-
   it.optional('getFizzBuzz should return the output value according specification', () => {
     [
       1, 2, 4, 7, 8, 11, 13, 14, 16, 17, 19, 22, 23, 26, 28, 29, 31, 32, 34,
@@ -73,7 +72,6 @@ describe('06-conditions-n-loops-tasks', () => {
         `getFizzBuzz shoud return 'FizzBuzz' for ${num}, but actually ${actual}`
       );
     });
-
   });
 
 
@@ -111,10 +109,10 @@ describe('06-conditions-n-loops-tasks', () => {
 
   it.optional('isTriangle should check if triangle can be built', () => {
     [
-      { sides: [ 1, 2, 3], expected: false },
-      { sides: [ 3, 4, 5], expected: true },
-      { sides: [ 10, 1, 1], expected: false },
-      { sides: [ 10, 10, 10], expected: true }
+      { sides: [1, 2, 3], expected: false },
+      { sides: [3, 4, 5], expected: true },
+      { sides: [10, 1, 1], expected: false },
+      { sides: [10, 10, 10], expected: true }
     ].forEach(data => {
       [[0, 1, 2], [0, 2, 1], [1, 2, 0], [1, 0, 2], [2, 0, 1], [2, 1, 0]].forEach(idx => {
         const actual = isTriangle(
@@ -379,7 +377,6 @@ describe('06-conditions-n-loops-tasks', () => {
         `CCN ${ccn} is not valid, but actually yes`
       );
     });
-
   });
 
 
@@ -421,7 +418,6 @@ describe('06-conditions-n-loops-tasks', () => {
         `'${str}' has unbalanced brackets, but actually yes`
       );
     });
-
   });
 
 
@@ -478,30 +474,30 @@ describe('06-conditions-n-loops-tasks', () => {
     [
       {
         m1: [
-          [ 1, 0, 0 ],
-          [ 0, 1, 0 ],
-          [ 0, 0, 1 ]
+          [1, 0, 0],
+          [0, 1, 0],
+          [0, 0, 1]
         ],
         m2: [
-          [ 1, 2, 3 ],
-          [ 4, 5, 6 ],
-          [ 7, 8, 9 ]
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]
         ],
         expected: [
-          [ 1, 2, 3 ],
-          [ 4, 5, 6 ],
-          [ 7, 8, 9 ]
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]
         ]
       }, {
         m1: [
-          [ 1, 2, 3]
+          [1, 2, 3]
         ],
         m2: [
-          [ 4 ],
-          [ 5 ],
-          [ 6 ]
+          [4],
+          [5],
+          [6]
         ],
-        expected: [[ 32 ]]
+        expected: [[32]]
       }
     ].forEach(data => {
       const actual = getMatrixProduct(data.m1, data.m2);
@@ -657,8 +653,8 @@ describe('06-conditions-n-loops-tasks', () => {
 
 
   it.optional('evaluateTicTacToePosition should return the winner if defined', () => {
-    const X = 'X',
-      O = '0';
+    const X = 'X';
+    const O = '0';
 
     function positionToSting(position) {
       let result = '';
@@ -674,37 +670,37 @@ describe('06-conditions-n-loops-tasks', () => {
     }
 
     [[
-      [ X, X, X ],
-      [ O, O ],
-      [ O, , ]
+      [X, X, X],
+      [O, O],
+      [O, , ]
     ], [
-      [ , O, O ],
-      [ X, X, X ],
-      [ O, , O ]
+      [, O, O],
+      [X, X, X],
+      [O, , O]
     ], [
-      [ , , O ],
-      [ O, , O ],
-      [ X, X, X ]
+      [, , O],
+      [O, , O],
+      [X, X, X]
     ], [
-      [ X, , O ],
-      [ X, , O ],
-      [ X, O ]
+      [X, , O],
+      [X, , O],
+      [X, O]
     ], [
-      [ O, X, O ],
-      [ X, X, O ],
-      [ O, X ]
+      [O, X, O],
+      [X, X, O],
+      [O, X]
     ], [
-      [ O, O, X ],
-      [ X, O, X ],
-      [ O, X, X ]
+      [O, O, X],
+      [X, O, X],
+      [O, X, X]
     ], [
-      [ X, O, O ],
-      [ X, X, O ],
-      [ O, X, X ]
+      [X, O, O],
+      [X, X, O],
+      [O, X, X]
     ], [
-      [ O, O, X ],
-      [ X, X, O ],
-      [ X, , O ]
+      [O, O, X],
+      [X, X, O],
+      [X, , O]
     ]
     ].forEach(data => {
       const actual = evaluateTicTacToePosition(data);
@@ -716,37 +712,37 @@ describe('06-conditions-n-loops-tasks', () => {
     });
 
     [[
-      [ O, O, O ],
-      [ , X, X ],
-      [ X, , ]
+      [O, O, O],
+      [, X, X],
+      [X, , ]
     ], [
-      [ X, X ],
-      [ O, O, O ],
-      [ X, , X ]
+      [X, X],
+      [O, O, O],
+      [X, , X]
     ], [
-      [ , , ],
-      [ X, , X ],
-      [ O, O, O ]
+      [, , ],
+      [X, , X],
+      [O, O, O]
     ], [
-      [ O, , X ],
-      [ O, X, X ],
-      [ O, X ]
+      [O, , X],
+      [O, X, X],
+      [O, X]
     ], [
-      [ X, O, X ],
-      [ X, O, O ],
-      [ O, O, X ]
+      [X, O, X],
+      [X, O, O],
+      [O, O, X]
     ], [
-      [ X, X, O ],
-      [ X, O, O ],
-      [ , X, O ]
+      [X, X, O],
+      [X, O, O],
+      [, X, O]
     ], [
-      [ O, X, X ],
-      [ X, O, X ],
-      [ O, X, O ]
+      [O, X, X],
+      [X, O, X],
+      [O, X, O]
     ], [
-      [ X, X, O ],
-      [ X, O, X ],
-      [ O, , X ]
+      [X, X, O],
+      [X, O, X],
+      [O, , X]
     ]
     ].forEach(data => {
       const actual = evaluateTicTacToePosition(data);
@@ -758,25 +754,25 @@ describe('06-conditions-n-loops-tasks', () => {
     });
 
     [[
-      [ , , ],
-      [ , , ],
-      [ , , ]
+      [, , ],
+      [, , ],
+      [, , ]
     ], [
-      [ X, , ],
-      [ O, O ],
-      [ , , X ]
+      [X, , ],
+      [O, O],
+      [, , X]
     ], [
-      [ X, O, X ],
-      [ X, O, X ],
-      [ O, X, O ]
+      [X, O, X],
+      [X, O, X],
+      [O, X, O]
     ], [
-      [ X, O, X ],
-      [ O, X, X ],
-      [ O, X, O ]
+      [X, O, X],
+      [O, X, X],
+      [O, X, O]
     ], [
-      [ X, O, X ],
-      [ O, , O ],
-      [ X, O, X ]
+      [X, O, X],
+      [O, , O],
+      [X, O, X]
     ]
     ].forEach(data => {
       const actual = evaluateTicTacToePosition(data);
@@ -787,5 +783,4 @@ describe('06-conditions-n-loops-tasks', () => {
       );
     });
   });
-
 });

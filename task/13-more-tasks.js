@@ -12,11 +12,7 @@
  *   'abcdefghijklmnop',  'lmnopqrstuvwxyz'  => 'abcdefghijklmnopqrstuvwxyz'
  */
 export function distinctLettersString(value1, value2) {
-
   return [...new Set(value1 + value2)].sort().join('');
-
-  /* implement your code here */
-  // throw new Error('Not implemented');
 }
 
 
@@ -33,14 +29,10 @@ export function distinctLettersString(value1, value2) {
  */
 
 export function lowerLetters(value) {
-
   return value.match(/[a-z]/g).sort().reduce((acc, el) => {
     acc[el] = acc[el] ? acc[el] += 1 : 1;
     return acc;
   }, {});
-
-  /* implement your code here */
-  // throw new Error('Not implemented');
 }
 
 /**
@@ -67,9 +59,6 @@ export function titleCaseConvert(title, minorWords) {
       ? el
       : el.replace(/\b\w/, el => el.toUpperCase())
   ).join(' ');
-
-  /* implement your code here */
-  // throw new Error('Not implemented');
 }
 
 /**
@@ -106,7 +95,4 @@ export function calcRPN(expr) {
   }, []).pop();
 
   return strRes === '' ? 0 : +strRes;
-
-  /* implement your code here */
-  // throw new Error('Not implemented');
 }

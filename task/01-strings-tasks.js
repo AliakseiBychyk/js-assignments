@@ -17,7 +17,7 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-const concatenateStrings = (value1, value2) => value1 + value2;
+export const concatenateStrings = (value1, value2) => value1 + value2;
 
 /**
  * Returns the length of given string.
@@ -30,7 +30,7 @@ const concatenateStrings = (value1, value2) => value1 + value2;
  *   'b'     => 1
  *   ''      => 0
  */
-const getStringLength = value => value.length;
+export const getStringLength = value => value.length;
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
@@ -45,7 +45,7 @@ const getStringLength = value => value.length;
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
-const getStringFromTemplate = (firstName, lastName) => `Hello, ${firstName} ${lastName}!`;
+export const getStringFromTemplate = (firstName, lastName) => `Hello, ${firstName} ${lastName}!`;
 
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
@@ -57,7 +57,7 @@ const getStringFromTemplate = (firstName, lastName) => `Hello, ${firstName} ${la
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-const extractNameFromTemplate = value => value.slice(7, -1);
+export const extractNameFromTemplate = value => value.slice(7, -1);
 
 /**
  * Returns a first char of the given string.
@@ -69,7 +69,7 @@ const extractNameFromTemplate = value => value.slice(7, -1);
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
-function getFirstChar(value) {
+export function getFirstChar(value) {
   return value.substr(0, 1);
 }
 
@@ -84,7 +84,7 @@ function getFirstChar(value) {
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(value) {
+export function removeLeadingAndTrailingWhitespaces(value) {
   return value.trim();
 }
 
@@ -99,7 +99,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
-function repeatString(value, count) {
+export function repeatString(value, count) {
   return value.repeat(count);
 }
 
@@ -115,7 +115,7 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(str, value) {
+export function removeFirstOccurrences(str, value) {
   return str.replace(value, '');
 }
 
@@ -130,7 +130,7 @@ function removeFirstOccurrences(str, value) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(str) {
+export function unbracketTag(str) {
   return str.replace(/[<>]/g, '');
 }
 
@@ -144,7 +144,7 @@ function unbracketTag(str) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(str) {
+export function convertToUpperCase(str) {
   return str.toUpperCase();
 }
 
@@ -159,7 +159,7 @@ function convertToUpperCase(str) {
  *      ['angus.young@gmail.com', 'brian.johnson@hotmail.com', 'bon.scott@yahoo.com']
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(str) {
+export function extractEmails(str) {
   return str.split(';');
 }
 
@@ -186,7 +186,7 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
+export function getRectangleString(width, height) {
   return [...new Array(height).keys()].reduce(
     (acc, el) =>
       (el === 0
@@ -208,10 +208,11 @@ function getRectangleString(width, height) {
  *   'hello' => 'uryyb'
  *   'Why did the chicken cross the road?' => 'Jul qvq gur puvpxra pebff gur ebnq?'
  *   'Gb trg gb gur bgure fvqr!' => 'To get to the other side!'
- *   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
+ *   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' =>
+ *          'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
+export function encodeToRot13(str) {
   const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
   const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
   const lookup = input.reduce((acc, el, i) => ({ ...acc, [el]: output[i] }), {});
@@ -234,7 +235,7 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(value) {
+export function isString(value) {
   return (
     value !== null && (typeof value === 'string' || (typeof value === 'object' && typeof value.valueOf() === 'string'))
   );
@@ -264,7 +265,7 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(value) {
+export function getCardId(value) {
   const suits = {
     '♣': 0, '♦': 13, '♥': 26, '♠': 39
   };
@@ -273,21 +274,3 @@ function getCardId(value) {
   const card = value.substr(0, value.length - 1);
   return cards.indexOf(card) + suits[suit];
 }
-
-export {
-  concatenateStrings,
-  getStringLength,
-  getStringFromTemplate,
-  extractNameFromTemplate,
-  getFirstChar,
-  removeLeadingAndTrailingWhitespaces,
-  repeatString,
-  removeFirstOccurrences,
-  unbracketTag,
-  convertToUpperCase,
-  extractEmails,
-  getRectangleString,
-  encodeToRot13,
-  isString,
-  getCardId
-};

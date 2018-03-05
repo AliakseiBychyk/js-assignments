@@ -1,5 +1,4 @@
 
-
 /** *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
@@ -43,8 +42,8 @@ export function generateOdds(len) {
 
 
 /**
- * Returns the doubled array - elements of the specified array are repeated
- * twice using original order
+ * Returns the doubled array - elements of the specified array are repeated twice
+ * using original order
  *
  * @param {array} arr
  * @return {array}
@@ -433,7 +432,8 @@ export function toStringList(arr) {
 
 
 /**
- * Sorts the specified array by country name first and city name (if countries are equal) in ascending order.
+ * Sorts the specified array by country name first and city name (if countries are
+ * equal) in ascending order.
  *
  * @param {array} arr
  * @return {array}
@@ -561,10 +561,12 @@ export function group(array, keySelector, valueSelector) {
 
 
 /**
- * Projects each element of the specified array to a sequence and flattens the resulting sequences into one array.
+ * Projects each element of the specified array to a sequence and flattens the
+ * resulting sequences into one array.
  *
  * @param {array} arr
- * @param {Function} childrenSelector, a transform function to apply to each element that returns an array of children
+ * @param {Function} childrenSelector, a transform const to apply to each element
+ *  that returns an array of children
  * @return {array}
  *
  * @example
@@ -618,7 +620,6 @@ export function swapHeadAndTail(arr) {
     ? [...arr.slice(halfNum), ...arr.slice(0, halfNum)]
     : [...arr.slice(halfNum + 1), ...arr.slice(halfNum, halfNum + 1), ...arr.slice(0, halfNum)];
 }
-
 
 const tasks = {
   findElement,

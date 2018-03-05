@@ -1,5 +1,5 @@
 import assert from 'assert';
-import  {
+import {
   getRegexForGuid,
   getRegexForPitSpot,
   getRegexForIPv4,
@@ -10,7 +10,6 @@ import  {
 it.optional = require('../extensions/it-optional');
 
 describe('05-regex-tasks', () => {
-
   it.optional('getRegexForGuid should match the valid GUID', () => {
     const result = getRegexForGuid();
 
@@ -38,21 +37,19 @@ describe('05-regex-tasks', () => {
         `regex matches '${str}'`
       );
     });
-
   });
-
 
   it.optional('getRegexForPitSpot should be implemeted according to task', () => {
     const result = getRegexForPitSpot();
 
-    [ 'pit', 'spot', 'spate', 'slap two', 'respite' ].forEach(str => {
+    ['pit', 'spot', 'spate', 'slap two', 'respite'].forEach(str => {
       assert(
         result.test(str),
         `regex does not match '${str}'`
       );
     });
 
-    [ ' pt', 'Pot', 'peat', 'part' ].forEach(str => {
+    [' pt', 'Pot', 'peat', 'part'].forEach(str => {
       assert(
         result.test(str) === false,
         `regex matches '${str}'`
@@ -64,7 +61,6 @@ describe('05-regex-tasks', () => {
       `regexp length should be < 13, actual ${result.source.length} `
     );
   });
-
 
   it.optional('getRegexForIPv4 should match the valid IPv4', () => {
     const result = getRegexForIPv4();
@@ -95,7 +91,6 @@ describe('05-regex-tasks', () => {
     });
   });
 
-
   it.optional('getRegexForSSN should match the valid SSN', () => {
     const result = getRegexForSSN();
 
@@ -123,9 +118,7 @@ describe('05-regex-tasks', () => {
         `regex matches '${str}'`
       );
     });
-
   });
-
 
   it.optional('getPasswordValidator should return the password validator', () => {
     const result = getPasswordValidator(6);

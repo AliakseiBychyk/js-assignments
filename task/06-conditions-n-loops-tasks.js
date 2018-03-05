@@ -1,12 +1,11 @@
 
-
 /** ************************************************************************************************
  *                                                                                                *
  * Plese read the following tutorial before implementing tasks:                                   *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling  *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration              *
  *                                                                                                *
- ************************************************************************************************* */
+ ************************************************************************************************ */
 
 
 /**
@@ -74,7 +73,8 @@ export function getSumBetweenNumbers(n1, n2) {
 
 
 /**
- * Returns true, if a triangle can be built with the specified sides a,b,c and false in any other ways.
+ * Returns true, if a triangle can be built with the specified sides a,b,c and false
+ * in any other ways.
  *
  * @param {number} a
  * @param {number} b
@@ -125,6 +125,7 @@ export function isTriangle(a, b, c) {
  *
  */
 export function doRectanglesOverlap(rect1, rect2) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -156,6 +157,7 @@ export function doRectanglesOverlap(rect1, rect2) {
  *
  */
 export function isInsideCircle(circle, point) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -172,12 +174,14 @@ export function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 export function findFirstSingleChar(str) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
 
 /**
- * Returns the string representation of math interval, specified by two points and include / exclude flags.
+ * Returns the string representation of math interval, specified by two points and
+ * include / exclude flags.
  * See the details: https://en.wikipedia.org/wiki/Interval_(mathematics)
  *
  * Please take attention, that the smaller number should be the first in the notation
@@ -198,6 +202,7 @@ export function findFirstSingleChar(str) {
  *
  */
 export function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -215,6 +220,7 @@ export function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 export function reverseString(str) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -232,6 +238,7 @@ export function reverseString(str) {
  *   34143 => 34143
  */
 export function reverseInteger(num) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -257,6 +264,7 @@ export function reverseInteger(num) {
  *   4916123456789012 => false
  */
 export function isCreditCardNumber(ccn) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -276,6 +284,7 @@ export function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 export function getDigitalRoot(num) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -302,6 +311,7 @@ export function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 export function isBracketsBalanced(str) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -338,12 +348,14 @@ export function isBracketsBalanced(str) {
  *
  */
 export function timespanToHumanString(startDate, endDate) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
 
 /**
- * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of specified number.
+ * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
+ * specified number.
  * See more about
  * https://en.wikipedia.org/wiki/Binary_number
  * https://en.wikipedia.org/wiki/Ternary_numeral_system
@@ -362,6 +374,7 @@ export function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 export function toNaryString(num, n) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -379,6 +392,7 @@ export function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 export function getCommonDirectoryPath(pathes) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -402,6 +416,7 @@ export function getCommonDirectoryPath(pathes) {
  *
  */
 export function getMatrixProduct(m1, m2) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
 
@@ -437,5 +452,6 @@ export function getMatrixProduct(m1, m2) {
  *
  */
 export function evaluateTicTacToePosition(position) {
+  /* implement your code here */
   throw new Error('Not implemented');
 }
