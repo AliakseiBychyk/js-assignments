@@ -1,6 +1,6 @@
 {
   "name": "js-training",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "JS training tasks",
   "scripts": {
     "lint": "eslint ./**/*.js",
