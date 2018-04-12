@@ -125,8 +125,15 @@ export function isTriangle(a, b, c) {
  *
  */
 export function doRectanglesOverlap(rect1, rect2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const { top: y1, left: x1, width: width1, height: height1 } = rect1;
+  const { top: y2, left: x2, width: width2, height: height2 } = rect2;
+
+  return (
+    !(x1 < x2 && (x1 + width1) < x2) &&
+    !(y1 < y2 && (y1 + height1) < y2) &&
+    !(x1 > (x2 + width2)) &&
+    !(y1 > (y2 + height2))
+  );
 }
 
 
@@ -157,8 +164,11 @@ export function doRectanglesOverlap(rect1, rect2) {
  *
  */
 export function isInsideCircle(circle, point) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const { x: x1, y: y1 } = circle.center;
+  const { x: x2, y: y2 } = point;
+  const dist = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5;
+
+  return dist < circle.radius;
 }
 
 
@@ -174,8 +184,15 @@ export function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 export function findFirstSingleChar(str) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+
+  const letters = str.match(/[a-zA-Z]/g).reduce((acc, letter, index) => {
+    acc[letter] = acc[letter] ? ++acc[letter] : 1;
+    return acc;
+  }, {});
+  return Object.keys(letters).reduce((acc, key) => {
+    if (letters[key] === 1) acc.push(key);
+    return acc;
+  }, []).shift();
 }
 
 
